@@ -2,7 +2,7 @@
 
 _An tiny organizational tool for media files_
 
-Supports Adobe DNG, MTS, and M4V files
+Supports Adobe DNG, MTS, and M4V files. Depends on the excellent [exiftool](http://www.sno.phy.queensu.ca/~phil/exiftool/ exiftool) by Phil Harvey.
 
 Will move files into dated directory and touch files with datetime contained in the underlying EXIF data.
 Will not overwrite original filename during move, but will append datetimestamp
