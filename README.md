@@ -1,4 +1,6 @@
-exiforg - An organizational tool for media files
+# exiforg
+
+_An tiny organizational tool for media files_
 
 Supports Adobe DNG, MTS, and M4V files
 
