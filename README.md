@@ -12,7 +12,7 @@ Use at your own risk!
 
 Report problems to nick at primordia dot com
 
-= Description
+## Description
 
 exiforg now handles DNG files, MTS files, and M4V files. Say you have a dir of new MTS files:
 
