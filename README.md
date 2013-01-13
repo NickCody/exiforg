@@ -2,26 +2,21 @@
 
 _An tiny organizational tool for media files_
 
-Usage:
+## Description
+
+Assists in organizing photos when they are manually pulled off your camera. Takes a set of files and moves them into date directories/partitions.  exiforg now handles these filetypes:
+
+* JPG, DNG, MTS, M4V
+
+Other filetypes may be supported if exiftool can get the creation datetime. 
+
+## Usage
 
     exiforg [-m] -f filespec
       -f filespec   Specifies files to be affected
       -m            Optional. Specifies file should be moved into dated dir. 
 
-
-Supports Adobe DNG, MTS, and M4V files. Depends on the excellent [exiftool](http://www.sno.phy.queensu.ca/~phil/exiftool/ exiftool) by Phil Harvey.
-
-Will move files into dated directory and touch files with datetime contained in the underlying EXIF data.
-Will not overwrite original filename during move, but will append datetimestamp
-If filename with appended datetimestamp is encountered, it will be overwritten. The assumption here is that the file should be the same. 
-
-Use at your own risk!
-
-Report problems to nick at primordia dot com
-
-## Description
-
-exiforg now handles DNG files, MTS files, and M4V files. Say you have a dir of new MTS files:
+Say you have a dir of new MTS files:
 
     /Volumes/CAVE3/AVCHD/00000.MTS
     /Volumes/CAVE3/AVCHD/00001.MTS
@@ -47,7 +42,7 @@ Say you Clear the movies from your camera, and take 3 more on the same day. My c
     /Volumes/CAVE3/AVCHD/00001.MTS
     /Volumes/CAVE3/AVCHD/00002.MTS
 
-exiforg does'nt overwrite files during the move. If the dest file exists, the date & time stamp is appended to the dest file, like so:
+exiforg doesn't overwrite files during the move. If the dest file exists, the date & time stamp is appended to the dest file, like so:
 
     exiforg.sh -f *.MTS -m
 
@@ -66,5 +61,12 @@ This all works for DNG files. For M4V files, I had to use a different tag, but i
 
 I'd run it on some test files before risking your real files, until you get what it's doing.
 
+## Supported File Types
+
+Supports Adobe DNG, MTS, and M4V files. Depends on the excellent [exiftool](http://www.sno.phy.queensu.ca/~phil/exiftool/ exiftool) by Phil Harvey.
+
+## Contact
+
+Report problems to nick at primordia dot com
 
 
