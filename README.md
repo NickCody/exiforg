@@ -13,7 +13,7 @@ Other filetypes may be supported if exiftool can get the creation datetime.
 ## Usage
 
     exiforg [-m] -f filespec
-      -f filespec   Specifies files to be affected
+      -f filespec   Specifies files to be affected. You must escape the filespec with a slash e.g. \*.jpg
       -m            Optional. Specifies file should be moved into dated dir. 
 
 Say you have a dir of new MTS files:
@@ -24,11 +24,11 @@ Say you have a dir of new MTS files:
 
 And you want the OS modified time to reflect the actual time the movie was recorded in the EXIF data. You just run this command:
 
-    exiforg -f *.MTS
+    exiforg -f \*.MTS
 
 If you want the files moved into a dated directory, YYYY.MM.DD, just specify -m:
 
-    exiforg -f *.MTS
+    exiforg -f \*.MTS
 
 Your new layout will be:
 
@@ -44,7 +44,7 @@ Say you Clear the movies from your camera, and take 3 more on the same day. My c
 
 exiforg doesn't overwrite files during the move. If the dest file exists, the date & time stamp is appended to the dest file, like so:
 
-    exiforg.sh -f *.MTS -m
+    exiforg.sh -f \*.MTS -m
 
 Yields:
 

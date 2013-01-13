@@ -27,7 +27,8 @@ while getopts ":m :f:" opt; do
     esac
 done
 
-for PIC in $FILESPEC; do
+for PIC in $FILESPEC
+do
     MESSAGE=""
     #
     # Get the Date from the file. Try a few things. Fail if you can't get it.
