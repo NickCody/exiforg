@@ -2,6 +2,13 @@
 
 _An tiny organizational tool for media files_
 
+Usage:
+
+    exiforg [-m] -f filespec
+      -f filespec   Specifies files to be affected
+      -m            Optional. Specifies file should be moved into dated dir. 
+
+
 Supports Adobe DNG, MTS, and M4V files. Depends on the excellent [exiftool](http://www.sno.phy.queensu.ca/~phil/exiftool/ exiftool) by Phil Harvey.
 
 Will move files into dated directory and touch files with datetime contained in the underlying EXIF data.
@@ -20,9 +27,13 @@ exiforg now handles DNG files, MTS files, and M4V files. Say you have a dir of n
     /Volumes/CAVE3/AVCHD/00001.MTS
     /Volumes/CAVE3/AVCHD/00002.MTS
 
-And you want these moves into a folder for the EXIF date. You just run this command:
+And you want the OS modified time to reflect the actual time the movie was recorded in the EXIF data. You just run this command:
 
-    exiforg.sh *.MTS
+    exiforg -f *.MTS
+
+If you want the files moved into a dated directory, YYYY.MM.DD, just specify -m:
+
+    exiforg -f *.MTS
 
 Your new layout will be:
 
@@ -30,15 +41,17 @@ Your new layout will be:
     /Volumes/CAVE3/AVCHD/2012.12.23/00001.MTS
     /Volumes/CAVE3/AVCHD/2012.12.23/00002.MTS
 
-And each file is touched with the EXIF timestamp, regardless of the OS timestamp currently there. The OS timestamp is when you imported the photos. Say you Clear the movies from your camera, and take 3 more on the same day:
+Say you Clear the movies from your camera, and take 3 more on the same day. My camera doesn't increment the numbers if I clear pictures off the camera. So, I run the possibility of overwriting files.
 
     /Volumes/CAVE3/AVCHD/00000.MTS
     /Volumes/CAVE3/AVCHD/00001.MTS
     /Volumes/CAVE3/AVCHD/00002.MTS
 
-If you run the command again, you would think I would overwrite the file. Well, exiforg doesn't. I see the dest file exists and I add a date & time stamp to the new one, like so:
+exiforg does'nt overwrite files during the move. If the dest file exists, the date & time stamp is appended to the dest file, like so:
 
-    exiforg.sh *.MTS
+    exiforg.sh -f *.MTS -m
+
+Yields:
 
     /Volumes/CAVE3/AVCHD/2012.12.23/00000.MTS
     /Volumes/CAVE3/AVCHD/2012.12.23/00001.MTS
