@@ -8,13 +8,14 @@ if [ $# -eq 0 ]; then
 fi
 
 MOVE=0
+FILESPEC=""
 while getopts ":m :f:" opt; do
     case $opt in
         m)
             MOVE=1
             ;;
         f)
-            FILESPEC=$OPTARG
+            FILESPEC="$OPTARG"
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -26,6 +27,10 @@ while getopts ":m :f:" opt; do
               ;;
     esac
 done
+
+if [ -z "$FILESPEC" ]; then
+    FILESPEC="*.MTS"
+fi
 
 for PIC in $FILESPEC
 do
